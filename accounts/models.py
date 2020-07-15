@@ -9,10 +9,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField('first name', max_length=30, blank=True)
     last_name = models.CharField('last name', max_length=30, blank=True)
     company = models.CharField('company', max_length=100)
-
     date_created = models.DateTimeField('date created', auto_now_add=True)
+    is_vendor = models.BooleanField('vendor', default=True)
     is_active = models.BooleanField('active', default=True)
-    is_staff = models.BooleanField('is staff', default=True)
+    is_staff = models.BooleanField('is staff', default=False)
 
     objects = UserManager()
 
